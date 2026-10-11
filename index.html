@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>럭비 부상 예방 운동 가이드</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:dark;--bg:#0a0c11;--panel:#12151d;--card:#1a1e29;--line:#252a38;--tx:#eef1f6;--mu:#8b93a7;--cy:#19c8f0;--or:#ff6b35;--body:#2a3042;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--tx);font-family:'Noto Sans KR',system-ui,sans-serif;line-height:1.55}
+header{padding:18px 20px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+header small{color:var(--cy);letter-spacing:.14em;font-weight:700;font-size:12px}
+h1{margin:0;font-size:24px}
+.hint{border:1px solid var(--cy);color:var(--cy);background:#0e2a33;border-radius:99px;padding:6px 14px;font-size:13px}
+main{display:flex;flex-wrap:wrap;min-height:calc(100vh - 80px)}
+.map{flex:1 1 320px;display:flex;flex-direction:column;align-items:center;padding:20px 10px}
+.map svg{width:100%;max-width:300px;height:auto;touch-action:manipulation}
+.r{fill:var(--body);stroke:#3a4157;stroke-width:1.5;cursor:pointer;transition:fill .15s}
+.r.hr{stroke:#7a4a36}
+.r:hover{fill:#3a4560}
+.r.on{fill:rgba(25,200,240,.45);stroke:var(--cy);stroke-width:2.5}
+.r.hr.on{fill:rgba(255,107,53,.45);stroke:var(--or)}
+.r:focus-visible{outline:none;stroke:#fff;stroke-width:3}
+.head{fill:#232838;stroke:#3a4157;stroke-width:1.5}
+svg text{fill:#8b93a7;font-size:11px;font-weight:700;pointer-events:none;text-anchor:middle;letter-spacing:.08em}
+.legend{display:flex;gap:18px;color:var(--mu);font-size:14px;margin-top:8px}
+.dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:6px}
+.side{flex:1 1 340px;background:var(--panel);border-left:1px solid var(--line);padding:24px 20px}
+.empty{text-align:center;padding:30px 0 10px}
+.empty .ic{width:92px;height:92px;border-radius:50%;background:#0e2a33;border:1px solid var(--cy);margin:0 auto 16px;display:grid;place-items:center;font-size:36px}
+.empty p{color:var(--mu);margin:6px 0}
+.list{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;margin-top:22px}
+.list b{display:block;margin-bottom:8px}
+.list button{display:flex;align-items:center;width:100%;background:none;border:0;color:var(--mu);font:inherit;padding:9px 4px;text-align:left;cursor:pointer;min-height:44px}
+.list button:active{color:var(--tx)}
+.top{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.top h2{margin:0;font-size:22px}
+.badge{font-size:12px;padding:3px 10px;border-radius:99px;border:1px solid var(--cy);color:var(--cy)}
+.badge.hr{border-color:var(--or);color:var(--or)}
+.back{margin-left:auto;background:none;border:1px solid var(--line);color:var(--mu);border-radius:8px;padding:8px 12px;font:inherit;font-size:13px;cursor:pointer}
+.sub{color:var(--mu);margin:6px 0 16px;font-size:14px}
+.tabs{display:flex;gap:8px;background:var(--card);padding:5px;border-radius:12px;margin-bottom:16px}
+.tabs button{flex:1;min-height:46px;border:0;border-radius:9px;background:none;color:var(--mu);font:inherit;font-weight:700;font-size:15px;cursor:pointer}
+.tabs button.on{background:var(--cy);color:#04141a}
+.hrp .tabs button.on{background:var(--or);color:#1a0900}
+.ex{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin-bottom:12px}
+.ex h3{margin:0 0 4px;font-size:17px}
+.ex p{margin:6px 0;color:#c5cbda;font-size:14.5px}
+.tip{color:var(--mu)!important;font-size:13.5px!important}
+.row{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:12px;flex-wrap:wrap}
+.dose{font-size:13px;color:var(--cy);background:#0e2a33;padding:4px 10px;border-radius:8px}
+.hrp .dose{color:var(--or);background:#2a150c}
+.vid{display:inline-flex;align-items:center;gap:6px;min-height:44px;padding:0 16px;border-radius:10px;background:#fff;color:#111;text-decoration:none;font-weight:700;font-size:14px}
+.chk{display:flex;align-items:center;gap:8px;min-height:44px;color:var(--mu);font-size:14px;cursor:pointer}
+.chk input{width:22px;height:22px;accent-color:var(--cy)}
+.ex.done{opacity:.55}
+.prog{color:var(--mu);font-size:13px;margin:0 0 12px}
+@media(max-width:700px){.side{border-left:0;border-top:1px solid var(--line)}}
+
+[hidden]{display:none!important}
+button.hint{font:inherit;font-size:13px;cursor:pointer;min-height:44px}
+.nav{display:flex;gap:8px;padding:10px 20px;border-bottom:1px solid var(--line);background:var(--bg);position:sticky;top:env(safe-area-inset-top,0px);z-index:5}
+.nav button{flex:1;min-height:46px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--mu);font:inherit;font-weight:700;font-size:15px;cursor:pointer}
+.nav button.on{background:var(--cy);color:#04141a;border-color:var(--cy)}
+.setup{max-width:460px;margin:0 auto;padding:36px 20px}
+.setup h2{font-size:24px;margin:0 0 6px}.setup p{color:var(--mu);margin:0 0 22px}
+.fld{margin-bottom:16px}.fld label{display:block;font-size:14px;color:var(--mu);margin-bottom:6px}
+.fld input{width:100%;min-height:54px;background:var(--card);border:1px solid var(--line);border-radius:12px;color:var(--tx);font:inherit;font-size:20px;padding:0 16px}
+.fld input:focus{outline:2px solid var(--cy);border-color:var(--cy)}
+.go{width:100%;min-height:56px;border:0;border-radius:12px;background:var(--cy);color:#04141a;font:inherit;font-weight:700;font-size:17px;cursor:pointer;margin-top:6px}
+.err{color:var(--or);font-size:14px;min-height:20px}
+.me{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:13.5px;color:var(--mu);margin:0 0 14px}
+.dietv{max-width:760px;margin:0 auto;padding:24px 20px 40px}
+.dietv h2{margin:0 0 4px;font-size:22px}
+.targets{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:16px 0}
+.tg{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px}
+.tg b{display:block;font-size:22px;color:var(--cy)}.tg span{font-size:13px;color:var(--mu)}
+.meal{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin-bottom:12px}
+.meal h3{margin:0;font-size:17px}.meal .t{font-size:13px;color:var(--cy)}
+.meal ul{margin:8px 0;padding-left:18px;color:#c5cbda;font-size:14.5px}
+.fx{background:#0e2a33;border-radius:10px;padding:10px 12px;font-size:14px;color:#bfeaf5}
+.sec{margin:26px 0 10px;font-size:18px}
+.fxg{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}
+.note{color:var(--mu);font-size:13px;margin-top:18px}
+
+.goals{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-top:16px}
+.goal{display:flex;flex-direction:column;gap:6px;text-align:left;min-height:150px;padding:16px;background:var(--card);border:2px solid var(--line);border-radius:16px;color:var(--tx);font:inherit;cursor:pointer}
+.goal.on,.goal:active{border-color:var(--cy)}
+.goal .gi{font-size:30px}.goal b{font-size:18px}
+.goal span{font-size:14px;color:#c5cbda}
+.goal .ex2{color:var(--cy);font-size:13.5px}
+.goal em{font-style:normal;font-size:13px;color:var(--mu)}
+.warn{border:1px solid var(--or);color:#ffc2a8;background:#2a150c;border-radius:12px;padding:12px 14px;font-size:14px;margin:12px 0}
+.foods{list-style:none;margin:10px 0;padding:0}
+.foods li{padding:10px 0;border-top:1px solid var(--line)}
+.foods li:first-child{border-top:0}
+.foods b{font-size:15.5px}.amt{color:var(--cy);font-size:14px;margin-left:6px}
+.eff{color:var(--mu);font-size:13.5px;margin-top:2px}
+.tipl{margin:6px 0 0;padding-left:18px;color:#c5cbda;font-size:14.5px}
+</style></head>
+<body>
+<header><div><small>RUGBY PERFORMANCE</small><h1>부상 예방 운동 가이드</h1></div><button class="hint" id="prof" type="button">내 정보 입력</button></header>
+<nav class="nav" id="nav" hidden><button data-v="exv">운동</button><button data-v="diet">식단</button></nav>
+<section id="setup" class="setup" hidden><h2>먼저 내 정보를 알려주세요</h2><p>키와 체중에 맞춰 운동 권장 횟수와 식단 목표를 계산해 드려요.</p>
+<div class="fld"><label for="hh">키 (cm)</label><input id="hh" type="number" inputmode="decimal" placeholder="예: 175"></div>
+<div class="fld"><label for="ww">체중 (kg)</label><input id="ww" type="number" inputmode="decimal" placeholder="예: 70"></div>
+<div class="err" id="err" role="alert"></div><button class="go" id="go" type="button">시작하기</button></section>
+<main id="exv" hidden>
+<section class="map">
+<svg viewBox="0 0 300 840" role="group" aria-label="신체 부위 선택">
+<circle class="head" cx="150" cy="68" r="58"/>
+<circle cx="132" cy="60" r="6" fill="#3a4157"/><circle cx="168" cy="60" r="6" fill="#3a4157"/>
+<g id="regions">
+<rect class="r" data-k="neck" x="123" y="125" width="54" height="52" rx="10" tabindex="0"/>
+<ellipse class="r" data-k="shoulder" cx="48" cy="200" rx="40" ry="30" tabindex="0"/>
+<ellipse class="r" data-k="shoulder" cx="252" cy="200" rx="40" ry="30" tabindex="0"/>
+<rect class="r" data-k="chest" x="52" y="180" width="196" height="108" rx="14" tabindex="0"/>
+<rect class="r" data-k="core" x="52" y="292" width="196" height="108" rx="10" tabindex="0"/>
+<rect class="r" data-k="arm" x="8" y="238" width="46" height="112" rx="20" tabindex="0"/>
+<rect class="r" data-k="arm" x="246" y="238" width="46" height="112" rx="20" tabindex="0"/>
+<rect class="r" data-k="arm" x="10" y="352" width="40" height="100" rx="18" tabindex="0"/>
+<rect class="r" data-k="arm" x="250" y="352" width="40" height="100" rx="18" tabindex="0"/>
+<rect class="r" data-k="hip" x="62" y="410" width="176" height="96" rx="30" tabindex="0"/>
+<rect class="r" data-k="thigh" x="64" y="508" width="76" height="150" rx="22" tabindex="0"/>
+<rect class="r" data-k="thigh" x="160" y="508" width="76" height="150" rx="22" tabindex="0"/>
+<ellipse class="r hr" data-k="knee" cx="100" cy="672" rx="38" ry="28" tabindex="0"/>
+<ellipse class="r hr" data-k="knee" cx="200" cy="672" rx="38" ry="28" tabindex="0"/>
+<rect class="r hr" data-k="ankle" x="72" y="696" width="58" height="104" rx="22" tabindex="0"/>
+<rect class="r hr" data-k="ankle" x="170" y="696" width="58" height="104" rx="22" tabindex="0"/>
+<ellipse class="r hr" data-k="ankle" cx="100" cy="822" rx="34" ry="14" tabindex="0"/>
+<ellipse class="r hr" data-k="ankle" cx="200" cy="822" rx="34" ry="14" tabindex="0"/>
+</g>
+<text x="150" y="156">NECK</text><text x="150" y="196">SHOULDER</text><text x="150" y="240">CHEST</text><text x="150" y="350">CORE</text><text x="150" y="462">HIP</text>
+<text x="102" y="590">THIGH</text><text x="198" y="590">THIGH</text><text x="100" y="676">KNEE</text><text x="200" y="676">KNEE</text><text x="101" y="752">ANKLE</text><text x="199" y="752">ANKLE</text>
+</svg>
+<div class="legend"><span><i class="dot" style="background:var(--cy)"></i>일반 부위</span><span><i class="dot" style="background:var(--or)"></i>고위험 부위</span></div>
+</section>
+<section class="side" id="side" aria-live="polite"></section>
+</main>
+<section id="diet" class="dietv" hidden></section>
+<script>
+// [부위, 고위험, 소개, 스트레칭[[이름,설명,팁,분량]], 근력[[...]]]
+const D={
+neck:["목 / 경추",0,"태클과 스크럼에서 충격을 가장 먼저 받는 곳이에요. 유연성보다 버티는 힘이 중요합니다.",
+[["목 옆 늘리기","앉은 채로 한 손을 반대쪽 머리에 얹고 부드럽게 옆으로 당겨 주세요.","반대쪽 어깨는 아래로 눌러 두면 더 잘 늘어나요.","20초 × 양쪽 2회"],["턱 당기기 스트레칭","턱을 가볍게 당겨 이중턱을 만들고, 뒷목이 길어지는 느낌으로 유지해요.","시선은 정면, 어깨는 힘 빼기.","15초 × 3회"]],
+[["등척성 목 누르기","이마에 손바닥을 대고 목으로 밀어내되 머리는 움직이지 않게 버텨요.","앞, 옆, 뒤 방향으로 번갈아 해주세요.","8초 × 방향별 3회"],["밴드 목 후면 강화","밴드를 머리 뒤에 걸고 턱을 당긴 상태로 천천히 뒤로 눌러 주세요.","허리가 꺾이지 않게 복부에 힘을 주세요.","12회 × 3세트"]]],
+shoulder:["어깨 / 회전근개",0,"탈구와 회전근개 부상이 잦은 부위예요. 안정성이 핵심입니다.",
+[["크로스 바디 스트레칭","한 팔을 가슴 앞으로 쭉 뻗고 반대 팔로 팔꿈치를 몸쪽으로 당겨요.","어깨가 귀 쪽으로 올라가지 않게 주의하세요.","30초 × 양쪽 2회"],["도어웨이 스트레칭","문틀에 팔을 올리고 몸을 앞으로 천천히 밀어 어깨 앞쪽을 열어 주세요.","허리를 과하게 젖히지 마세요.","30초 × 3회"]],
+[["밴드 외회전","팔꿈치를 옆구리에 붙이고 밴드를 바깥쪽으로 천천히 돌려 당겨요.","팔꿈치가 떨어지지 않는 게 포인트예요.","15회 × 3세트"],["Y-T-W 레이즈","엎드린 자세에서 팔을 Y, T, W 모양으로 차례로 들어 올려요.","가벼운 무게로 견갑골을 모으는 느낌으로.","각 8회 × 2세트"]]],
+chest:["가슴 / 흉곽",0,"볼 캐리와 푸시 동작의 힘을 만들고, 어깨 자세도 함께 잡아줘요.",
+[["벽 가슴 열기","팔을 벽에 90도로 대고 몸을 반대쪽으로 천천히 돌려요.","갈비뼈가 튀어나오지 않게 복부를 잡아주세요.","30초 × 양쪽 2회"],["흉추 회전 스트레칭","옆으로 누워 위쪽 팔을 크게 열면서 가슴을 천장으로 돌려요.","무릎은 붙인 채 고정하세요.","10회 × 2세트"]],
+[["푸시업","손은 어깨보다 조금 넓게, 몸은 일직선을 유지하며 내려갔다 올라와요.","엉덩이가 처지지 않게 코어에 힘을 주세요.","12회 × 3세트"],["덤벨 플로어 프레스","바닥에 누워 덤벨을 가슴 위로 밀어 올리고 천천히 내려요.","팔꿈치는 몸에서 45도 정도로 벌려요.","10회 × 3세트"]]],
+core:["코어 / 복부",0,"충돌 시 몸통을 단단히 잡아 허리와 하체 부상을 막아줘요.",
+[["캣-카우","네발 자세에서 등을 둥글게 말았다가 천천히 펴며 호흡해요.","동작은 호흡에 맞춰 천천히.","10회 × 2세트"],["코브라 스트레칭","엎드려 손으로 바닥을 밀며 상체를 부드럽게 들어 복부를 늘려요.","골반은 바닥에 붙여 두세요.","20초 × 3회"]],
+[["플랭크","팔꿈치로 몸을 받치고 머리부터 발끝까지 일직선을 유지해요.","허리가 꺾이면 바로 쉬고 다시 시작하세요.","30~45초 × 3세트"],["사이드 플랭크","옆으로 누워 팔꿈치로 몸을 들어 올려 옆구리를 단단하게 만들어요.","골반이 아래로 처지지 않게.","20~30초 × 양쪽 3세트"]]],
+arm:["팔 / 팔꿈치",0,"그립과 푸시, 태클 때 팔을 보호하는 데 필요해요.",
+[["손목 굴곡근 스트레칭","팔을 앞으로 뻗고 손바닥을 위로 한 채 반대 손으로 손끝을 몸쪽으로 당겨요.","팔꿈치는 끝까지 펴 주세요.","20초 × 양쪽 3회"],["삼두근 스트레칭","팔을 머리 뒤로 접고 반대 손으로 팔꿈치를 부드럽게 눌러요.","목을 숙이지 말고 시선은 정면.","20초 × 양쪽 2회"]],
+[["해머 컬","손바닥이 마주 보게 덤벨을 잡고 팔꿈치를 고정한 채 들어 올려요.","반동 없이 천천히 내려오세요.","12회 × 3세트"],["손목 롤러/악력 운동","타월이나 그립 도구를 꽉 쥐고 일정 시간 버텨요.","패스와 핸들링에 도움이 돼요.","20초 × 4회"]]],
+hip:["고관절 / 둔근",0,"스프린트와 방향 전환의 엔진이에요. 약하면 무릎과 허리가 대신 고생합니다.",
+[["비둘기 자세","한쪽 무릎을 접어 앞에 두고 뒷다리는 길게 뻗어 엉덩이를 늘려요.","상체는 앞으로 천천히 숙여 주세요.","30초 × 양쪽 2회"],["90/90 힙 스트레칭","양 무릎을 90도로 접어 앉고 상체를 앞다리 쪽으로 기울여요.","엉덩이가 바닥에서 뜨지 않게.","30초 × 양쪽 2회"]],
+[["글루트 브릿지","누워서 무릎을 세우고 엉덩이를 천장으로 끝까지 밀어 올려요.","꼭대기에서 2초간 꽉 조여 주세요.","12회 × 3세트"],["클램쉘 (밴드)","옆으로 누워 무릎 위에 밴드를 걸고 위쪽 무릎만 벌렸다 닫아요.","골반이 뒤로 구르지 않게.","15회 × 3세트"]]],
+thigh:["허벅지 / 슬굴곡근",0,"햄스트링 부상은 럭비에서 가장 흔해요. 늘리는 것과 버티는 힘을 함께 챙기세요.",
+[["서서 햄스트링 스트레칭","뒤꿈치를 앞에 두고 등을 편 채 고관절부터 숙여요.","허리를 둥글게 말지 마세요.","30초 × 양쪽 2회"],["런지 대퇴사두 스트레칭","무릎을 꿇고 뒷발을 잡아 엉덩이 쪽으로 당겨요.","골반이 앞으로 말리지 않게 배에 힘을 주세요.","30초 × 양쪽 2회"]],
+[["노르딕 햄스트링 컬","무릎을 꿇고 발목을 고정한 채 상체를 천천히 앞으로 기울여 버텨요.","내려가는 속도를 최대한 천천히.","6회 × 3세트"],["루마니안 데드리프트","무릎을 살짝 굽히고 엉덩이를 뒤로 빼며 상체를 숙였다가 일어나요.","등은 곧게, 무게는 다리 가까이.","10회 × 3세트"]]],
+knee:["무릎 / 슬관절",1,"방향 전환과 착지에서 인대 부상이 많은 고위험 부위예요. 자세가 가장 중요합니다.",
+[["대퇴사두 스트레칭","옆으로 누워 아래 다리를 접고 위 발목을 잡아 부드럽게 당겨요.","무릎이 아프면 범위를 줄이세요.","30초 × 양쪽 2회"],["종아리-무릎 벽 스트레칭","벽에 손을 짚고 뒷다리 뒤꿈치를 바닥에 붙인 채 몸을 앞으로 기울여요.","뒤꿈치가 뜨지 않게.","30초 × 양쪽 2회"]],
+[["스플릿 스쿼트","한 발을 앞에 두고 수직으로 내려갔다 올라와요.","무릎이 안쪽으로 모이지 않게 발끝 방향을 맞춰요.","10회 × 양쪽 3세트"],["싱글 레그 착지","한 발로 가볍게 점프해 착지하고, 무릎을 굽히며 3초간 균형을 잡아요.","착지 소리는 작을수록 좋아요.","6회 × 양쪽 3세트"]]],
+ankle:["발목 / 족관절",1,"접질림이 잦은 고위험 부위예요. 균형 감각과 종아리 힘을 함께 키우세요.",
+[["종아리 벽 스트레칭","벽을 밀며 뒷다리를 쭉 펴고 뒤꿈치를 눌러 종아리를 늘려요.","발끝은 정면을 향하게.","30초 × 양쪽 2회"],["발목 알파벳 쓰기","앉아서 발끝으로 공중에 알파벳을 그리듯 천천히 움직여요.","발목만 움직이고 다리는 고정.","A~Z 1회 × 양쪽"]],
+[["카프 레이즈","발끝으로 천천히 올라가 1초 멈췄다가 천천히 내려와요.","계단 끝에서 하면 범위가 더 커져요.","15회 × 3세트"],["한 발 균형 잡기","한 발로 서서 눈을 감거나 쿠션 위에서 균형을 유지해요.","익숙해지면 공 패스를 더해 보세요.","30초 × 양쪽 3회"]]]
+};
+const side=document.getElementById('side'),shapes=[...document.querySelectorAll('.r')];
+const $=id=>document.getElementById(id);
+const ST={get(k){try{return JSON.parse(localStorage.getItem(k))}catch(e){return null}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+let P=ST.get('rg_p'),done=ST.get('rg_d')||{};
+const bmi=()=>P.w/Math.pow(P.h/100,2);
+const factor=()=>{const b=bmi();return b<18.5?.8:b<25?1:b<30?.9:.8};
+const scale=d=>{const f=factor(),i=d.indexOf('×'),a=i<0?d:d.slice(0,i),r=i<0?'':d.slice(i);return a.replace(/\d+/g,n=>Math.max(1,Math.round(n*f)))+r};
+const yt=n=>'https://www.youtube.com/results?search_query='+encodeURIComponent(n+' 올바른 자세 방법');
+function view(v){
+ ['setup','exv','diet'].forEach(i=>$(i).hidden=i!==v);
+ $('nav').hidden=v==='setup';
+ document.querySelectorAll('#nav button').forEach(b=>b.classList.toggle('on',b.dataset.v===v));
+ if(v==='diet')goalScreen();
+ scrollTo(0,0);
+}
+function upd(){$('prof').textContent=P?`키 ${P.h}cm · ${P.w}kg ✎`:'내 정보 입력'}
+$('prof').onclick=()=>{if(P){$('hh').value=P.h;$('ww').value=P.w}view('setup')};
+$('go').onclick=()=>{
+ const h=parseFloat($('hh').value),w=parseFloat($('ww').value);
+ if(!(h>=120&&h<=230)){$('err').textContent='키는 120~230cm 사이로 입력해 주세요.';return}
+ if(!(w>=30&&w<=200)){$('err').textContent='체중은 30~200kg 사이로 입력해 주세요.';return}
+ $('err').textContent='';P={h,w};ST.set('rg_p',P);upd();empty();view('exv');
+};
+document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>view(b.dataset.v));
+function empty(){
+ shapes.forEach(s=>s.classList.remove('on'));
+ side.className='side';
+ side.innerHTML='<div class="empty"><div class="ic">👆</div><h2>신체 부위 선택</h2><p>왼쪽 마네킹에서 운동하고 싶은</p><p>신체 부위를 터치하세요.</p></div><div class="list"><b>운동 가능 부위</b>'+
+ Object.keys(D).map(k=>`<button data-k="${k}"><i class="dot" style="background:var(--${D[k][1]?'or':'cy'})"></i>${D[k][0]}</button>`).join('')+'</div>';
+ side.querySelectorAll('button[data-k]').forEach(b=>b.onclick=()=>show(b.dataset.k,'s'));
+}
+function show(k,t){
+ const d=D[k],list=t==='s'?d[3]:d[4],f=factor();
+ shapes.forEach(s=>s.classList.toggle('on',s.dataset.k===k));
+ side.className='side'+(d[1]?' hrp':'');
+ const cnt=list.filter((e,i)=>done[k+t+i]).length;
+ side.innerHTML=`<div class="top"><h2>${d[0]}</h2><span class="badge ${d[1]?'hr':''}">${d[1]?'고위험 부위':'일반 부위'}</span><button class="back" id="bk">전체 보기</button></div>
+ <p class="sub">${d[2]}</p>
+ <p class="me">내 기준: 키 ${P.h}cm · ${P.w}kg → ${f<1?'조금 가볍게 시작':'표준 강도'}. 통증이 있으면 바로 멈추세요.</p>
+ <div class="tabs" role="tablist"><button class="${t==='s'?'on':''}" data-t="s">스트레칭</button><button class="${t==='m'?'on':''}" data-t="m">근력운동</button></div>
+ <p class="prog">${cnt} / ${list.length} 완료</p>`+
+ list.map((e,i)=>`<article class="ex ${done[k+t+i]?'done':''}"><h3>${e[0]}</h3><p>${e[1]}</p><p class="tip">💡 ${e[2]}</p>
+ <div class="row"><span class="dose">권장 ${scale(e[3])}</span><a class="vid" href="${yt(e[0])}" target="_blank" rel="noopener">▶ 자세 영상 찾기</a></div>
+ <label class="chk"><input type="checkbox" data-i="${i}" ${done[k+t+i]?'checked':''}>완료했어요</label></article>`).join('');
+ side.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>show(k,b.dataset.t));
+ side.querySelectorAll('.chk input').forEach(c=>c.onchange=()=>{done[k+t+c.dataset.i]=c.checked;ST.set('rg_d',done);show(k,t)});
+ $('bk').onclick=empty;
+ if(innerWidth<=700)side.scrollIntoView({behavior:'smooth'});
+}
+const GK=['bulk','cut','keep','rec'];
+const GOALS={
+bulk:['💪','벌크업','근육량과 체중 늘리기','예) 몸싸움에서 밀리지 않게 체중을 늘리고 싶어요',[1.8,2.2],[6,8],'평소보다 하루 300~500kcal 더 먹기',['하루 4~5번으로 나눠 먹으면 부담이 적어요','근력운동한 날 탄수화물을 가장 많이 채워요'],['근육량 증가','접촉 시 버티는 힘','훈련 후 회복 속도']],
+cut:['🔥','다이어트','체지방 줄이기','예) 근력은 지키면서 체지방을 줄이고 싶어요',[2,2.4],[3,4.5],'하루 300~500kcal 정도만 천천히 줄이기',['단백질은 줄이지 말고 밥·간식 양을 조절해요','주 0.5kg 안팎으로 천천히 빼는 게 안전해요'],['체지방 감소','근손실 최소화','포만감 유지']],
+keep:['🏉','경기력 유지','체중 유지, 컨디션 관리','예) 시즌 중 지금 체중을 유지하며 꾸준히 뛰고 싶어요',[1.6,2],[5,7],'지금 먹는 열량 수준 유지',['훈련 강도가 높은 날은 탄수화물을 늘려요','경기 전날은 평소 먹던 음식 위주로 먹어요'],['안정적인 체력','경기 후반 집중력','꾸준한 컨디션']],
+rec:['🩹','부상 회복','회복 속도 높이기','예) 부상에서 복귀 중이라 회복을 돕고 싶어요',[1.8,2.2],[4,6],'유지 열량 안팎 (활동이 줄었다면 간식 조절)',['비타민 C와 단백질을 매끼 챙겨요','통증이 있으면 운동을 쉬고 전문가와 상담하세요'],['조직 회복 도움','염증 관리','근손실 예방']]};
+const FOOD={
+'계란':['양질의 단백질과 류신이 풍부해 근육 합성을 도와요.','근육 합성'],
+'현미밥':['천천히 흡수되는 탄수화물이라 훈련 에너지를 오래 유지해요.','지속 에너지'],
+'시금치':['마그네슘과 철분이 근육 기능과 피로 회복에 도움이 될 수 있어요.','피로 회복'],
+'닭가슴살':['지방이 적은 고단백 식품으로 근육 수리에 좋아요.','근육 수리'],
+'브로콜리':['비타민 C와 K가 콜라겐 형성과 뼈 건강을 도와요.','인대·뼈 건강'],
+'우유':['단백질과 칼슘, 비타민 D가 근육 회복과 뼈 건강에 도움이 돼요.','뼈·근육 회복'],
+'바나나':['빠른 탄수화물과 칼륨이 에너지 보충과 근육 경련 예방에 도움이 될 수 있어요.','빠른 에너지'],
+'소고기':['철분·아연·단백질이 산소 운반과 회복을 도와요.','산소 운반·회복'],
+'파프리카':['비타민 C가 매우 많아 인대·힘줄의 콜라겐 합성을 도와요.','콜라겐 합성'],
+'오트밀':['식이섬유가 많아 혈당이 천천히 올라 에너지가 오래가요.','지속 에너지'],
+'삼각김밥':['편의점에서 쉽게 챙기는 탄수화물로 에너지를 보충해요.','에너지 보충'],
+'참치캔':['간편한 고단백 식품이고 오메가-3도 일부 들어 있어요.','간편 단백질'],
+'방울토마토':['비타민 C와 항산화 성분이 운동 후 피로 관리에 도움이 될 수 있어요.','항산화'],
+'단백질 쉐이크':['훈련 직후 빠르게 단백질을 보충해 회복을 도와요.','빠른 회복'],
+'고구마':['복합 탄수화물과 칼륨이 근육 글리코겐 보충에 좋아요.','글리코겐 보충'],
+'샐러드':['식이섬유와 수분이 많아 포만감을 주고 소화에 부담이 적어요.','포만감'],
+'그릭요거트':['고단백이고 유산균이 있어 근육 회복과 장 건강에 도움이 될 수 있어요.','단백질·장 건강'],
+'통밀빵':['통곡물 탄수화물과 식이섬유로 에너지가 안정적으로 이어져요.','안정적 에너지'],
+'키위':['비타민 C가 많아 콜라겐 합성을 돕고 소화에도 좋아요.','비타민 C'],
+'연어':['오메가-3가 풍부해 훈련 후 염증 관리에 도움이 될 수 있어요.','염증 관리'],
+'두부':['식물성 단백질과 칼슘이 들어 있어 부담 없이 단백질을 채워요.','식물성 단백질'],
+'땅콩버터':['건강한 지방으로 열량을 쉽게 높여 체중 늘리기에 도움이 돼요.','열량 보충'],
+'블루베리':['항산화 성분이 운동 후 근육 피로와 염증 관리에 도움이 될 수 있어요.','항산화'],
+'견과류':['비타민 E, 마그네슘, 건강한 지방이 컨디션 유지에 도움이 돼요.','컨디션 유지'],
+'두유':['식물성 단백질로 훈련 후 가볍게 단백질을 채울 수 있어요.','가벼운 단백질']};
+const RICE='1.5공기|2/3공기|1공기|1공기';
+const TYPES=[
+['한식 균형형','집밥·식당에서 챙기기 쉬워요',[['아침',[['계란','스크램블 2~3개'],['현미밥',RICE],['시금치','나물 한 줌']]],['점심',[['닭가슴살','150g'],['현미밥',RICE],['브로콜리','한 접시']]],['훈련 후',[['우유','1컵'],['바나나','1개']]],['저녁',[['소고기','구이 150g'],['현미밥',RICE],['파프리카','반 개~1개']]]]],
+['간편식형','바쁠 때, 편의점·마트에서 해결해요',[['아침',[['오트밀','80g|40g|60g|60g'],['우유','1컵'],['바나나','1개']]],['점심',[['삼각김밥','3개|1개|2개|2개'],['참치캔','1캔 (물에 담긴 것)'],['방울토마토','10알']]],['훈련 후',[['단백질 쉐이크','1잔'],['바나나','1개']]],['저녁',[['닭가슴살','시판 1팩 (100~150g)'],['고구마','큰 것 1.5개|작은 것 1개|1개|1개'],['샐러드','큰 접시']]]]],
+['생선·채소형','염증 관리와 컨디션에 초점을 맞췄어요',[['아침',[['그릭요거트','1컵'],['통밀빵','3장|1~2장|2장|2장'],['키위','2개']]],['점심',[['연어','구이 150g'],['현미밥',RICE],['브로콜리','한 접시']]],['훈련 후',[['두유','1컵'],['견과류','한 줌']]],['저녁',[['두부','반 모~1모'],['시금치','나물 한 줌'],['현미밥',RICE]]]]]];
+const EXTRA={bulk:[['땅콩버터','식빵 2장에 2큰술'],['우유','500ml']],cut:[['계란','삶은 계란 1개'],['방울토마토','10알']],keep:[['바나나','1개'],['그릭요거트','1컵']],rec:[['그릭요거트','1컵'],['블루베리','한 줌'],['견과류','한 줌']]};
+let G=ST.get('rg_g'),T=0;
+const amt=(a,gi)=>{const p=a.split('|');return p.length===4?p[gi]:a};
+function goalScreen(){
+ $('diet').innerHTML=`<h2>운동 목적을 골라 주세요</h2><p class="sub">목적에 따라 식단의 양과 구성이 달라져요. 하나를 터치하세요.</p><div class="goals">`+
+ GK.map(k=>{const g=GOALS[k];return `<button class="goal ${G===k?'on':''}" data-g="${k}"><span class="gi">${g[0]}</span><b>${g[1]}</b><span>${g[2]}</span><span class="ex2">${g[3]}</span><em>${g[6]}</em></button>`}).join('')+`</div>`;
+ $('diet').querySelectorAll('.goal').forEach(b=>b.onclick=()=>{G=b.dataset.g;ST.set('rg_g',G);T=0;renderDiet();scrollTo(0,0)});
+}
+function renderDiet(){
+ const g=GOALS[G],gi=GK.indexOf(G),w=P.w,b=bmi(),r=Math.round,t=TYPES[T];
+ const warn=G==='cut'&&b<18.5?'<div class="warn">BMI가 낮은 편이라 체중을 더 줄이는 것보다 "경기력 유지"나 "벌크업" 목적을 추천해요.</div>':'';
+ const meals=t[2].concat([['추가 간식',EXTRA[G]]]);
+ $('diet').innerHTML=`<div class="top"><h2>${g[0]} ${g[1]}</h2><button class="back" id="chg">목적 바꾸기</button></div>
+ <p class="sub">체중 ${w}kg 기준 · ${g[6]}</p>${warn}
+ <div class="targets"><div class="tg"><b>${r(w*g[4][0])}~${r(w*g[4][1])}g</b><span>하루 단백질</span></div><div class="tg"><b>${r(w*g[5][0])}~${r(w*g[5][1])}g</b><span>하루 탄수화물</span></div><div class="tg"><b>${(w*.035).toFixed(1)}L</b><span>하루 수분 (훈련 시 +0.5~1L)</span></div></div>
+ <h3 class="sec">식단 종류 선택</h3>
+ <div class="tabs">${TYPES.map((x,i)=>`<button data-t="${i}" class="${i===T?'on':''}">${x[0]}</button>`).join('')}</div>
+ <p class="sub">${t[1]}</p>`+
+ meals.map(m=>{const tags=[...new Set(m[1].map(x=>FOOD[x[0]][1]))].join(' · ');
+ return `<article class="meal"><span class="t">${m[0]}</span><ul class="foods">${m[1].map(x=>`<li><b>${x[0]}</b><span class="amt">${amt(x[1],gi)}</span><div class="eff">${FOOD[x[0]][0]}</div></li>`).join('')}</ul><div class="fx">✔ 기대효과: ${tags}에 도움이 될 수 있어요.</div></article>`}).join('')+
+ `<h3 class="sec">${g[1]} 목적 체크포인트</h3><ul class="tipl">${g[7].map(x=>`<li>${x}</li>`).join('')}</ul>
+ <h3 class="sec">꾸준히 먹으면 기대되는 효과</h3><div class="fxg">${g[8].map(x=>`<div class="meal"><h3>${x}</h3></div>`).join('')}</div>
+ <p class="note">일반적인 스포츠 영양 기준으로 계산한 참고용이에요. 알레르기나 질환이 있다면 의사·영양사와 상담해 주세요.</p>`;
+ $('chg').onclick=goalScreen;
+ $('diet').querySelectorAll('.tabs button').forEach(x=>x.onclick=()=>{T=+x.dataset.t;renderDiet()});
+}
+shapes.forEach(s=>{s.onclick=()=>show(s.dataset.k,'s');s.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();show(s.dataset.k,'s')}}});
+upd();empty();view(P?'exv':'setup');
+</script>
+</body></html>
